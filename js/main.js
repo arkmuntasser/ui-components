@@ -3,10 +3,12 @@ $(document).ready(function() {
     var h = $("img").height();
     var top = $(this).scrollTop();
 
-    $("img").css({
-      top: (top / 4) + "px",
-      opacity: (h - top) / h
-    });
+    if(top > 0) {
+      $("img").css({
+        top: (top / 4) + "px",
+        opacity: (h - top) / h
+      });
+    }
   });
 
   $(window).resize(function() {

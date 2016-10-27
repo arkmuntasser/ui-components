@@ -29,10 +29,31 @@
       line-height: 1.1;
       color: #333;
     }
+
+    header {
+      padding: 0 12px;
+      height: 60px;
+      background-color: rebeccapurple;
+      box-shadow: 0 0 12px 6px rgba(0, 0, 0, 0.2);
+    }
+
+    header h1 {
+      margin: 0 auto;
+      width: 100%;
+      max-width: 1024px;
+      font-size: 24px;
+      font-weight: bold;
+      line-height: 60px;
+      color: #fff;
+    }
   </style>
 </head>
 <body>
+  <header>
+    <h1>Alerts</h1>
+  </header>
 
+  <input class="alerts-toggle-checkbox" id="toggle-checkbox" type="checkbox" />
   <div class="alerts" data-alerts>
     <div class="alerts-background"></div>
     <div class="alerts-inner">
@@ -159,6 +180,11 @@
     <button class="alerts-icon icon-bell" data-alerts-toggle>
       <i class="fa fa-bell" aria-hidden="true"></i>
     </button>
+    <noscript>
+      <label class="alerts-toggle-label" for="toggle-checkbox">
+        <i class="fa fa-bell" aria-hidden="true"></i>
+      </label>
+    </noscript>
   </div>
 
   <script src="alerts.js"></script>

@@ -1,3 +1,10 @@
+.alerts-toggle-checkbox {
+  position: absolute;
+  z-index: -1;
+  visibility: hidden;
+  pointer-events: none;
+}
+
 .alerts {
   position: fixed;
   bottom: 16px;
@@ -10,6 +17,8 @@
   overflow: hidden;
   pointer-events: none;
 }
+
+.alerts-toggle-checkbox:checked + .alerts,
 .alerts.open { pointer-events: all; }
 
 .alerts-background {
@@ -25,6 +34,8 @@
   transition: transform .3s cubic-bezier(0, 0, 0.3, 1);
   will-change: transform;
 }
+
+.alerts-toggle-checkbox:checked + .alerts .alerts-background,
 .alerts.open .alerts-background {
   transform: scale(26);
   transition: transform .3s cubic-bezier(0, 0, 0.3, 1);
@@ -40,6 +51,7 @@
   will-change: transform, opacity;
 }
 
+.alerts-toggle-checkbox:checked + .alerts .alerts-inner,
 .alerts.open .alerts-inner {
   opacity: 1;
   transform: translateY(0);
@@ -57,11 +69,6 @@
   border-bottom: 1px solid rgba(255, 255, 255, 0.2);
 }
 
-.alerts.open .alerts-header {
-  opacity: 1;
-  transform: translateY(0);
-}
-
 .alerts-header .title {
   font-size: 20px;
   font-weight: bold;
@@ -77,20 +84,13 @@
   overflow-x: hidden;
 }
 
-.alerts.open .alerts-body {
-  opacity: 1;
-  transform: translateY(0);
-}
-
 .alert {
   line-height: 1.1;
   position: relative;
   padding: 24px 12px 0 72px;
 }
 
-.alert:last-of-type {
-  padding-bottom: 24px;
-}
+.alert:last-of-type { padding-bottom: 24px; }
 
 .alert-icon {
   position: absolute;
@@ -123,15 +123,23 @@
   border-radius: 50%;
   background-color: transparent;
   outline: none;
+  overflow: hidden;
   cursor: pointer;
   transform: translateY(-60px);
   transition: transform .2s cubic-bezier(0, 0, 0.3, 1), background-color .2s cubic-bezier(0, 0, 0.3, 1);
   will-change: transform, background-color;
 }
 
-.alerts.open .alerts-icon {
-  transform: translateY(-518px);
+.alerts-icon label {
+  position: relative;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
 }
+
+.alerts-toggle-checkbox:checked + .alerts .alerts-icon,
+.alerts.open .alerts-icon { transform: translateY(-518px); }
 
 .alerts-icon:hover {
   color: #333;
@@ -148,6 +156,4 @@
   opacity: 0;
 }
 
-.alerts.open .alerts-icon.icon-close {
-  opacity: 1;
-}
+.alerts.open .alerts-icon.icon-close { opacity: 1; }

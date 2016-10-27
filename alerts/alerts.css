@@ -88,9 +88,10 @@
 .alert {
   line-height: 1.1;
   position: relative;
-  padding: 24px 12px 0 72px;
+  padding: 12px 12px 12px 72px;
 }
 
+.alert:first-of-type { padding-top: 24px; }
 .alert:last-of-type { padding-bottom: 24px; }
 
 .alert:hover {

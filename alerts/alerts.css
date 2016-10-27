@@ -93,6 +93,10 @@
 
 .alert:last-of-type { padding-bottom: 24px; }
 
+.alert:hover {
+  background-color: rgba(0, 0, 0, 0.2);
+}
+
 .alert-icon {
   position: absolute;
   top: 24px;

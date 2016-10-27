@@ -130,7 +130,7 @@
   will-change: transform, background-color;
 }
 
-.alert-icon i { flex: 1; }
+.alerts-icon i { flex: 1; }
 
 .alerts-toggle-checkbox:checked + .alerts .alerts-icon,
 .alerts.open .alerts-icon { transform: translateY(-518px); }

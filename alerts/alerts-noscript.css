@@ -1,7 +1,7 @@
 .alerts-toggle-label {
   position: absolute;
   z-index: 1;
-  left: 12px;
+  top: 12px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -12,18 +12,26 @@
   border: none;
   border-radius: 50%;
   background-color: transparent;
+  opacity: 0;
   outline: none;
   overflow: hidden;
   cursor: pointer;
-  transform: translateY(-60px);
-  transition: transform .2s cubic-bezier(0, 0, 0.3, 1), background-color .2s cubic-bezier(0, 0, 0.3, 1);
-  will-change: transform, background-color;
+}
+
+.alerts-toggle-label-bell {
+  left: 12px;
+  opacity: 1;
   pointer-events: all;
 }
+
+.alerts-toggle-label-close { right: 12px; }
 
 .alerts-toggle-label:hover {
   color: #333;
   background-color: #ffc107;
 }
 
-.alerts-toggle-checkbox:checked + .alerts .alerts-toggle-label { transform: translateY(-518px); }
+.alerts-toggle-checkbox:checked + .alerts .alerts-toggle-label {
+  opacity: 1;
+  pointer-events: all;
+}

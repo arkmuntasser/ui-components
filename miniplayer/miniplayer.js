@@ -11,9 +11,11 @@ class Miniplayer {
 
     this.locked = false;
     this.isMini = false;
+    this.isPlaying = false;
 
     this.maybeActivateMiniplayer = this.maybeActivateMiniplayer.bind(this);
     this.activateMiniplayer = this.activateMiniplayer.bind(this);
+    this.playVideo = this.playVideo.bind(this);
     this.update = this.update.bind(this);
     this.cleanup = this.cleanup.bind(this);
 
@@ -23,6 +25,18 @@ class Miniplayer {
   addEventListeners() {
     window.addEventListener('scroll', this.maybeActivateMiniplayer);
     this.miniplayer.addEventListener('transitionend', this.cleanup);
+    this.miniplayerImage.addEventListener('click', this.playVideo);
+  }
+
+  playVideo() {
+    var iframe = this.miniplayerVideoTemplate.innerHTML;
+    var tempEl = document.createElement('div');
+    tempEl.innerHTML = iframe;
+
+    var iframeEl = tempEl;
+    this.miniplayerInner.appendChild(iframeEl);
+
+    this.isPlaying = true;
   }
 
   maybeActivateMiniplayer(evt) {
@@ -32,9 +46,10 @@ class Miniplayer {
 
     const scrollY = window.scrollY;
 
-    if(this.isMini && scrollY < 300) {
+    if(this.isPlaying && this.isMini && scrollY < 300) {
       // deactivate miniplayer
-    } else if(!this.isMini && scrollY >= 300) {
+      this.activateMiniplayer();
+    } else if(this.isPlaying && !this.isMini && scrollY >= 300) {
       // activate miniplayer
       this.activateMiniplayer();
     }
@@ -44,32 +59,33 @@ class Miniplayer {
     this.locked = true;
 
     var first = this.miniplayerWrapper.getBoundingClientRect();
-    console.log(first);
 
-    this.miniplayer.classList.add('mini');
+    this.miniplayer.classList.toggle('mini');
     var last = this.miniplayerWrapper.getBoundingClientRect();
-    console.log(last);
 
     var invertWidth = first.width / last.width;
     var invertHeight = first.height / last.height;
-    var invertTop = (Math.abs(first.top) * invertHeight) - last.top - window.scrollY;
+    var invertTop = (first.top * invertHeight) - last.top;
     var invertLeft = (first.left * invertWidth) - last.left;
 
     this.miniplayerWrapper.style.transform = `translate(${invertLeft}px, ${invertTop}px) scale(${invertWidth}, ${invertHeight})`;
     this.miniplayerWrapper.style.willChange = 'transform';
 
-    requestAnimationFrame(this.update);
+    const update = this.update;
+    requestAnimationFrame(function() {
+      requestAnimationFrame(update)
+    });
   }
 
   update() {
     this.miniplayer.classList.add('animate');
     this.miniplayerWrapper.style.transform = '';
-    this.isMini = true;
+    this.isMini = this.isMini ? false : true;
   }
 
   cleanup() {
     this.locked = false;
-    //this.miniplayer.classList.remove('animate');
+    this.miniplayer.classList.remove('animate');
     this.miniplayerWrapper.style.willChange = '';
   }
 }

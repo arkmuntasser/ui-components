@@ -6,11 +6,10 @@
 	<meta name="viewport" content="width=device-width,initial-scale=1">
   <title>Cover Story</title>
 
-	<link href="font-awesome.min.css" rel="stylesheet">
-  <link href="miniplayer.css" rel="stylesheet">
+  <link href="cover-story.css" rel="stylesheet">
 
   <noscript>
-    <link href="miniplayer-noscript.css" rel="stylesheet">
+    <link href="cover-story-noscript.css" rel="stylesheet">
   </noscript>
 
   <style>
@@ -30,15 +29,22 @@
       color: #333;
     }
 
+    body { margin-top: 90px; }
+
     header {
+      position: fixed;
+      z-index: 1;
+      top: 0;
+      left: 0;
       margin-bottom: 30px;
-      padding: 0 12px 60px;
+      padding: 0 12px;
       width: 100%;
-      background-color: #f50057;
+      background-color: #212121;
       box-shadow: 0 0 12px 6px rgba(0, 0, 0, 0.2);
     }
 
-    header h1 {
+    header h1,
+		header .title1 {
       margin: 0 auto;
       width: 100%;
       max-width: 1024px;
@@ -59,23 +65,17 @@
   </style>
 </head>
 <body>
-  <header>
-    <h1>Miniplayer</h1>
-    <div class="miniplayer" data-miniplayer>
-      <div class="miniplayer-placeholder">
-        <div class="miniplayer-placeholder-inner"></div>
-      </div>
-      <div class="miniplayer-wrapper" data-miniplayer-wrapper>
-        <div class="miniplayer-inner" data-miniplayer-inner>
-          <div class="miniplayer-shadow" data-miniplayer-shadow></div>
-          <img class="miniplayer-img" src="http://placehold.it/560x315" alt="video alt" data-miniplayer-image />
-          <i class="miniplayer-icon fa fa-play-circle"></i>
-          <script type="text/template" data-miniplayer-video-template>
-            <iframe class="miniplayer-video" src="https://www.youtube.com/embed/EzldnP_fxic?autoplay=1" frameborder="0" allowfullscreen data-miniplayer-video></iframe>
-          </script>
-        </div>
+	<div class="cover-story" data-cover-story>
+    <div class="cover-story-shadow" data-cover-story-shadow></div>
+    <div class="cover-story-inner">
+      <div class="cover-story-content">
+        <h1>Cover Story</h1>
       </div>
     </div>
+  </div>
+
+  <header>
+    <div class="title1">Cover Story</div>
   </header>
 
   <div class="container">
@@ -83,7 +83,7 @@
       Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium.
     </p>
     <p>
-      Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus. Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi. Nam eget dui. Etiam rhoncus. Maecenas tempus, tellus eget condimentum rhoncus, sem quam semper libero, sit amet adipiscing sem neque sed ipsum. Nam quam nunc, blandit vel, luctus pulvinar, hendrerit id, lorem. Maecenas nec odio et ante tincidunt tempus. Donec vitae sapien ut libero venenatis faucibus. Nullam quis ante. Etiam sit amet orci eget eros faucibus tincidunt. Duis leo. Sed fringilla mauris sit amet nibh. Donec sodales sagittis magna. Sed consequat, leo eget bibendum sodales, augue velit cursus nunc.
+      Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus. Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi. Nam eget dui. Etiam rhoncus. Maecenas tempus, tellus eget condimentum rhoncus, sem quam semper libero, sit amet adipiscing sem neque sed ipsum. Nam quam nunc, blandit vel, luctus pulvinar, hendrerit id, lorem. Maecenas nec odio et ante tincidunt tempus. Donec vitae sapien ut libero venenatis faucibus. Nullam quis ante. Etiam sit amet orci eget eros faucibus tincidunt. Duis leo. Sed fringilla <a href="http://google.com/">mauris sit amet nibh</a>. Donec sodales sagittis magna. Sed consequat, leo eget bibendum sodales, augue velit cursus nunc.
     </p>
     <p>
       Quis gravida magna mi a libero. Fusce vulputate eleifend sapien. Vestibulum purus quam, scelerisque ut, mollis sed, nonummy id, metus. Nullam accumsan lorem in dui. Cras ultricies mi eu turpis hendrerit fringilla. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; In ac dui quis mi consectetuer lacinia. Nam pretium turpis et arcu. Duis arcu tortor, suscipit eget, imperdiet nec, imperdiet iaculis, ipsum. Sed aliquam ultrices mauris. Integer ante arcu, accumsan a, consectetuer eget, posuere ut, mauris. Praesent adipiscing.
@@ -126,6 +126,6 @@
     </p>
   </div>
 
-  <script src="miniplayer.js"></script>
+  <script src="cover-story.js"></script>
 </body>
 </html>

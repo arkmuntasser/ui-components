@@ -1,4 +1,4 @@
-# ui-components
+# UI Components
 A collection/playground of UI components and experiments
 
 ## Examples

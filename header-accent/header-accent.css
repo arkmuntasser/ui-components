@@ -1,0 +1,36 @@
+.header-accent {
+  position: relative;
+  margin-bottom: 30px;
+  width: 100%;
+  height: auto;
+  background-color: #00b0ff;
+}
+
+.header-accent .header-accent-image {
+  position: relative;
+  padding-bottom: 46.875%;
+  width: 100%;
+  height: 0;
+  background-image: url("http://placehold.it/1024x480");
+  background-position: 50% 50%;
+  background-size: cover;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  will-change: opacity;
+}
+
+.header-accent .header-accent-title {
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  padding: 15px 0;
+  width: 100%;
+  max-width: 1024px;
+  height: 60px;
+  font-size: 32px;
+  line-height: 60px;
+  color: #fff;
+  transform: translateX(-50%);
+  box-sizing: content-box;
+  pointer-events: none;
+}

@@ -17,7 +17,7 @@ class CoverStory {
 
   addEventListeners() {
     window.addEventListener('scroll', this.toggleCoverStory);
-    this.coverStory.addEventListener('scroll', this.updateShadowOpacity)
+    this.coverStory.addEventListener('scroll', this.updateShadowOpacity);
   }
 
   updateShadowOpacity(evt) {

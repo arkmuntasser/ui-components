@@ -25,9 +25,11 @@ class HeaderAccent {
     const distanceTravelled = Math.min(currentScrollPosition, headerAccentHeight);
     const opacity = 1 - (distanceTravelled / headerAccentHeight);
 
-    if(this.imageIsTransparent && scrollingDown && opacity === 1) {
+    if((this.imageIsTransparent && scrollingDown && opacity === 1) || (!this.imageIsTransparent && !scrollingDown && opacity === 0)) {
       return;
     }
+
+    this.imageIsTransparent = opacity === 1 ? true : false;
 
     this.headerAccentImage.style.opacity = opacity;
     this.lastScrollPosition = currentScrollPosition;

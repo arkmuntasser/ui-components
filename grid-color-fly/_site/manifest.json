@@ -1,0 +1,10 @@
+{
+  "lang": "en-us",
+  "background_color": "#ffffff",
+  "theme_color": "#ffffff",
+  "name": "Grid Color Fly",
+  "short_name": "Grid Color Fly",
+  "start_url": "/",
+  "display": "browser",
+  "icons": []
+}

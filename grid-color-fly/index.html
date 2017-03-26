@@ -1,0 +1,26 @@
+---
+layout: default
+---
+
+<div class="imageboxes container-fluid" data-imageboxes>
+  <div class="section no-padding">
+
+    {% for i in (1..9) %}
+      <div class="imagebox col col-xs-12 col-md-4" data-imagebox>
+        <div class="imagebox-overlay" data-imagebox-overlay>
+          <p>
+            Sick overlay!
+          </p>
+        </div>
+        <div class="imagebox-hoverer top"></div>
+        <div class="imagebox-hoverer right"></div>
+        <div class="imagebox-hoverer bottom"></div>
+        <div class="imagebox-hoverer left"></div>
+        <div class="imagebox-content">
+          <img src="http://placehold.it/800x600" />
+        </div>
+      </div>
+    {% endfor %}
+
+  </div>
+</div>

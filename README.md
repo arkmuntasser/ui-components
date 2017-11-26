@@ -1,4 +1,4 @@
-# UI Components
+# UI Playground
 A collection/playground of UI components and experiments
 
 ## Examples
